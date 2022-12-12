@@ -15,18 +15,18 @@ btn3 = Button(root,text="O",command=lambda: keepnum(3)).pack()
 btn4 = Button(root,text="O",command=lambda: keepnum(4)).pack()
 btn5 = Button(root,text="O",command=lambda: keepnum(5)).pack()
 btn6 = Button(root,text="O",command=lambda: keepnum(6)).pack()
-btn7 = Button(root,text="O",command=lambda: keepnum("15")).pack()
-btn8 = Button(root,text="O",command=lambda: keepnum("16")).pack()
-btn9 = Button(root,text="O",command=lambda: keepnum("25")).pack()
-btn10 = Button(root,text="O",command=lambda: keepnum("123")).pack()
-btn11 = Button(root,text="O",command=lambda: keepnum("36")).pack()
-btn12 = Button(root,text="O",command=lambda: keepnum("24")).pack()
-btn13 = Button(root,text="O",command=lambda: keepnum("35")).pack()
-btn14 = Button(root,text="O",command=lambda: keepnum("41")).pack()
-btn15 = Button(root,text="O",command=lambda: keepnum("456")).pack()
-btn16 = Button(root,text="O",command=lambda: keepnum("52")).pack()
-btn17 = Button(root,text="O",command=lambda: keepnum("61")).pack()
-btn18 = Button(root,text="O",command=lambda: keepnum("62")).pack()
+btn7 = Button(root,text="O",command=lambda: keepnum([1,5])).pack()
+btn8 = Button(root,text="O",command=lambda: keepnum([1,6])).pack()
+btn9 = Button(root,text="O",command=lambda: keepnum([2,5])).pack()
+btn10 = Button(root,text="O",command=lambda: keepnum([1,2,3])).pack()
+btn11 = Button(root,text="O",command=lambda: keepnum([3,6])).pack()
+btn12 = Button(root,text="O",command=lambda: keepnum([2,4])).pack()
+btn13 = Button(root,text="O",command=lambda: keepnum([3,5])).pack()
+btn14 = Button(root,text="O",command=lambda: keepnum([4,1])).pack()
+btn15 = Button(root,text="O",command=lambda: keepnum([4,5,6])).pack()
+btn16 = Button(root,text="O",command=lambda: keepnum([5,2])).pack()
+btn17 = Button(root,text="O",command=lambda: keepnum([6,1])).pack()
+btn18 = Button(root,text="O",command=lambda: keepnum([6,2])).pack()
 btn19 = Button(root,text="O",command=lambda: keepnum("5LOW")).pack()
 btn21 = Button(root,text="O",command=lambda: keepnum("6LOW")).pack()
 btn20 = Button(root,text="O",command=lambda: keepnum("11HILO")).pack()
@@ -49,33 +49,33 @@ def keepnum(id):
         lst.append(id)
     elif id==6:
         lst.append(id)
-    elif id=="15":
+    elif id==[1,5]:
         lst.append(id)
-    elif id=="16":
+    elif id==[1,6]:
         lst.append(id)
-    elif id=="25":
+    elif id==[2,5]:
         lst.append(id)
-    elif id=="123":
+    elif id==[1,2,3]:
         lst.append(id)
-    elif id=="36":
+    elif id==[3,6]:
         lst.append(id)
-    elif id=="24":
+    elif id==[2,4]:
         lst.append(id)
-    elif id=="35":
+    elif id==[3,5]:
         lst.append(id)
-    elif id=="41":
+    elif id==[4,1]:
         lst.append(id)
-    elif id=="456":
+    elif id==[4,5,6]:
         lst.append(id)
-    elif id=="52":
+    elif id==[5,2]:
         lst.append(id)
-    elif id=="61":
+    elif id==[6,1]:
         lst.append(id)
-    elif id=="62":
+    elif id==[6,2]:
         lst.append(id)
-    elif id=="5LOW":
+    elif id==[5,"LOW"]:
         lst.append(id)
-    elif id=="6LOW":
+    elif id==[6,"LOW"]:
         lst.append(id)
     elif id=="11HILO":
         lst.append(id)
@@ -85,32 +85,47 @@ def keepnum(id):
         lst.append(id)
     print (lst)
 
+#เงื่อนไขคำนวณเงิน
 def condition2():
     result,dice1,dice2,dice3 = condition()
-    if result in lst and dice1 in lst and dice2 in lst and dice3 in lst:
-        print("lucky")
-    elif result in lst and dice1 in lst and dice2 in lst:
-        print("lucky2")
-    elif result in lst and dice1 in lst:
-        print("lucky3")
-    elif result in lst and dice2 in lst:
-        print("lucky4")
-    elif result in lst and dice3 in lst:
-        print("lucky5")
-    elif dice1 in lst and dice2 in lst:
-        print("lucky6")
-    elif dice1 in lst and dice3 in lst:
-        print("lucky7")
-    elif dice2 in lst and dice3 in lst:
-        print("lucky7")
-    elif result in lst:
+    if result in lst:
         print("yes0")
-    elif dice1 in lst:
+    if dice1 in lst:
         print("yes1")
-    elif dice2 in lst:
+    if dice2 in lst:
         print("yse2")
-    elif dice3 in lst:
+    if dice3 in lst:
         print("yes3")
+    if ([dice1,dice2]) in lst:
+        print("tood1")
+    if ([dice1,dice3]) in lst:
+        print("tood2")
+    if ([dice2,dice1]) in lst:
+        print("tood3")
+    if ([dice2,dice3]) in lst:
+        print("tood4")
+    if ([dice3,dice1]) in lst:
+        print("tood5")
+    if ([dice3,dice2]) in lst:
+        print("tood6")
+    if ([dice1,dice2,dice3]) in lst:
+        print("tood7")
+    if ([dice1,dice3,dice2]) in lst:
+        print("tood8")
+    if ([dice2,dice1,dice3]) in lst:
+        print("tood9")
+    if ([dice2,dice3,dice1]) in lst:
+        print("tood10")
+    if ([dice3,dice1,dice2]) in lst:
+        print("tood11")
+    if ([dice3,dice2,dice1]) in lst:
+        print("tood12")
+    if ([dice1,result]) in lst:
+        print("tood13")
+    if ([dice2,result]) in lst:
+        print("tood13")
+    if ([dice3,result]) in lst:
+        print("tood13")
 
 def condition():
     dice1 = ranNum()
@@ -129,8 +144,13 @@ def condition():
     print(dice1, dice2, dice3)
     return result,dice1,dice2,dice3
 
+#เคลียร์ list เพื่อเริ่มใหม่
+def restart():
+    lst.clear()
+
 #กดเพื่อเริ่มเช็คเงื่อนไข
 btn_start = Button(root,text="START",command=lambda: condition2()).pack()
+btn_reset = Button(root,text="RESTART",command=lambda: restart()).pack()
 
 root.geometry("500x800")
 root.mainloop()
